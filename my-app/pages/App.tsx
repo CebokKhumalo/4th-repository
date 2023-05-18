@@ -8,6 +8,7 @@ interface Movies {
     staring: string;
     category: string;
     id: string;
+    imageLink: string;
     videolink: string;
 }
 
@@ -19,56 +20,44 @@ const App = () => {
         return <div>Loading...</div>;
     }
 
-    const movies = data.result[15];
+    const movies = data.result;
     console.log(movies);
 
     console.log('movies: ', movies);
     console.log('@movies', movies);
 
     return (
-        <div className="position-relative d-flex justify-content-center align-items-center">
-            <form className="position-absolute top-0 start-0 translate-middle">
-                <form>
-                    <label>
-                        Username:
-                        <input type="text" name="Username" />
-                    </label>
-                    <label>
-                        Password:
-                        <input type="text" name="Password" />
-                    </label>
-                    <input type="submit" value="Submit" />
-                </form>
-            </form>
+        <div
+            style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(30%, 300px))',
+                gridGap: '20px',
+            }}
+        >
+            {movies.map((movie: Movies) => (
+                <div
+                    key={movie.id}
+                    style={{
+                        display: 'grid',
+                        gridTemplateRows: 'max-content 200px 1fr',
+                    }}
+                >
+                    <h3>{movie.title}</h3>
+                    <Link href="videoPlayer">
+                        <img
+                            src={movie.imageLink}
+                            alt={movie.title}
+                            style={{
+                                objectFit: 'cover',
+                                width: '100%',
+                                height: '100%',
+                            }}
+                        />
+                    </Link>
+                </div>
+            ))}
         </div>
     );
 };
 
 export default App;
-/*<tbody>
-
-             <table>
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Duration</th>
-                        <th>Starring</th>
-                        <th>Category</th>
-                    </tr>
-                </thead>
-            </table>
-            <video controls>
-                <source src={movies.videoLink} type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
-            <h1>{movies.title}</h1>
-
-                    {movies.map((movie: Movies) => (
-                        <tr key={movie.id}>
-                            <td>{movie.title}</td>
-                            <td>{movie.duration}</td>
-                            <td>{movie.staring}</td>
-                            <td>{movie.category}</td>
-                        </tr>
-                    ))}
-                </tbody>*/
