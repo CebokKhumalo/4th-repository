@@ -7,6 +7,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "@types/redux-actions": "^2.6.2",
     "bootstrap": "^5.3.0-alpha3",
     "next": "latest",
     "react": "^18.2.0",

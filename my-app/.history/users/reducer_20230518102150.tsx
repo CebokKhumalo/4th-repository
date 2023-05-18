@@ -1,4 +1,4 @@
-/*import { UserActionEnum } from './actions';
+import { UserActionEnum } from './action';
 import { IUserStateContext } from './context';
 
 export function UserReducer(
@@ -19,4 +19,3 @@ export function UserReducer(
             incomingState;
     }
 }
-*/

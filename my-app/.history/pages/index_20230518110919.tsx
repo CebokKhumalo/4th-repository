@@ -5,11 +5,11 @@ import App from './App';
 import { MovieProvider } from '../Providers/movies';
 
 const IndexPage = () => (
-    <MovieProvider>
-        <RestfulProvider base="https://localhost:44311/api/services/app/">
+    <RestfulProvider base="https://localhost:44311/api/services/app/">
+        <MovieProvider>
             <App />
-        </RestfulProvider>
-    </MovieProvider>
+        </MovieProvider>
+    </RestfulProvider>
 );
 
 export default IndexPage;
