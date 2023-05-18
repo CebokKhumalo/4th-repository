@@ -29,21 +29,16 @@ const UserProvider: FC<PropsWithChildren> = ({ children }) => {
     const [state, dispatch] = useReducer(UserReducer, INITIAL_STATE);
     // const{ push} = useRouter();
 
-
-
     const loginUser = async (payload: ILogin) => {
-       
-            const {response} = useGet({
-                path: 'TokenAuth/Authenticate'
+        const { response } = useGet({
+                path: 'TokenAuth/Authenticate',
             }),
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json';
                 // Authorization: "Bearer <token>" // Replace <token> with the actual token value
-            },
-            body: JSON["stringify"](payload),
-
-          
+            };
+        // body: JSON.stringify(payload),
     };
 
     const createUser = async (userRegInfo: IUser) => {

@@ -32,18 +32,47 @@ const UserProvider: FC<PropsWithChildren> = ({ children }) => {
 
 
     const loginUser = async (payload: ILogin) => {
-       
+        try {
+            const  = await fetch(
+                'https://localhost:44311/api/',
+                {
+                 
+                }
+            );
+
             const {response} = useGet({
                 path: 'TokenAuth/Authenticate'
-            }),
+            })
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 // Authorization: "Bearer <token>" // Replace <token> with the actual token value
             },
-            body: JSON["stringify"](payload),
+            body: JSON.stringify(payload),
 
-          
+            if (response.ok) {
+                const data = await response.json();
+
+                notification.success({
+                    message: 'Success',
+                    description: 'Login successful',
+                });
+                dispatch(loginUserRequestAction(data));
+                localStorage.setItem('token', data.result.accessToken);
+                window.location.href = '/MoviesTable';
+            } else {
+                notification.error({
+                    message: 'Error',
+                    description: 'Invalid username or password',
+                });
+            }
+        } catch (error) {
+            // Remove token from local storage
+            notification.error({
+                message: 'Error',
+                description: 'Login failed',
+            });
+        }
     };
 
     const createUser = async (userRegInfo: IUser) => {

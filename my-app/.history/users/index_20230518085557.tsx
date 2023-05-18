@@ -41,7 +41,7 @@ const UserProvider: FC<PropsWithChildren> = ({ children }) => {
                 'Content-Type': 'application/json',
                 // Authorization: "Bearer <token>" // Replace <token> with the actual token value
             },
-            body: JSON["stringify"](payload),
+            body: JSON.stringify(payload),
 
           
     };
