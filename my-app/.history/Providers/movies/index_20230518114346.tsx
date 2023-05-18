@@ -38,7 +38,7 @@ const useGetMovieState = () => {
     const context = useContext(MovieContext);
 
     if (!context) {
-        throw new Error('no movies found');
+        throw new error('no movies found');
     }
     return context;
 };
@@ -47,7 +47,7 @@ const useGetMovieAction = () => {
     const context = useContext(MovieActionContext);
 
     if (context === undefined) {
-        throw new Error('no movies found');
+        throw new error('no movies found');
     }
     return context;
 };

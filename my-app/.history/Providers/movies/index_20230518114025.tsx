@@ -9,6 +9,7 @@ import {
     MovieActionContext,
 } from './context';
 import { getMoviesRequestAction } from './action';
+import { error } from 'console';
 
 const MovieProvider = ({ children }) => {
     const [state, dispatch] = useReducer(MovieReducer, INITIAL_STATE);
@@ -38,7 +39,7 @@ const useGetMovieState = () => {
     const context = useContext(MovieContext);
 
     if (!context) {
-        throw new Error('no movies found');
+        throw new error('no movies found');
     }
     return context;
 };
@@ -47,7 +48,7 @@ const useGetMovieAction = () => {
     const context = useContext(MovieActionContext);
 
     if (context === undefined) {
-        throw new Error('no movies found');
+        throw new error('no movies found');
     }
     return context;
 };

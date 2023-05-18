@@ -36,7 +36,7 @@ const Home = () => {
                 gridGap: '20px',
             }}
         >
-            {GetMovies.map((movie: Movies) => (
+            {movies.map((movie: Movies) => (
                 <div
                     key={movie.id}
                     style={{
