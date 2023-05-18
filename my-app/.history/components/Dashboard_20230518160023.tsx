@@ -16,12 +16,8 @@ const Dashboard = () => {
     const { getMovies, getMovie } = useMovie();
 
     useEffect(() => {
-        getMovie;
-    }, []);
-
-    if (!getMovies) {
-        return <div>Loading...</div>;
-    }
+        getMovie();
+    }, [getMovie]);
 
     return (
         <div

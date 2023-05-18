@@ -16,11 +16,11 @@ const Dashboard = () => {
     const { getMovies, getMovie } = useMovie();
 
     useEffect(() => {
-        getMovie;
+        getMovie();
     }, []);
 
     if (!getMovies) {
-        return <div>Loading...</div>;
+        return <div>loading</div>;
     }
 
     return (

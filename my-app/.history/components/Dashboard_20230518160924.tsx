@@ -16,7 +16,7 @@ const Dashboard = () => {
     const { getMovies, getMovie } = useMovie();
 
     useEffect(() => {
-        getMovie;
+        getMovie();
     }, []);
 
     if (!getMovies) {

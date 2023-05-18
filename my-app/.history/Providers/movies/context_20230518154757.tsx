@@ -20,5 +20,5 @@ export interface IMovieActionContext {
     getMovie?: () => void;
 }
 
-export const MovieContext = createContext<IMovieStateContext>(INITIAL_STATE);
-export const MovieActionContext = createContext<IMovieActionContext>(undefined);
+const MovieContext = createContext<IMovieStateContext>(INITIAL_STATE);
+const MovieActionContext = createContext<IMovieActionContext>(undefined);

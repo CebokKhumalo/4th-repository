@@ -16,12 +16,8 @@ const Dashboard = () => {
     const { getMovies, getMovie } = useMovie();
 
     useEffect(() => {
-        getMovie;
+        getMovie();
     }, []);
-
-    if (!getMovies) {
-        return <div>Loading...</div>;
-    }
 
     return (
         <div
@@ -31,7 +27,7 @@ const Dashboard = () => {
                 gridGap: '20px',
             }}
         >
-            {getMovies.map((movie: Movie) => (
+            {movies.map((movie: Movie) => (
                 <div
                     key={movie.id}
                     style={{

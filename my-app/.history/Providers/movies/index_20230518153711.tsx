@@ -1,10 +1,4 @@
-import React, {
-    FC,
-    PropsWithChildren,
-    useContext,
-    useEffect,
-    useReducer,
-} from 'react';
+import React, { FC, PropsWithChildren, useContext, useReducer } from 'react';
 import { MovieReducer } from './reducer';
 import { useGet } from 'restful-react';
 
@@ -16,24 +10,21 @@ import {
 } from './context';
 import { getMoviesRequestAction } from './action';
 
-const MovieProvider: FC<PropsWithChildren<{}>> = ({ children }) => {
+const MovieProvider = ({ children }) => {
     const [state, dispatch] = useReducer(MovieReducer, INITIAL_STATE);
 
-    useEffect(() => {
-        const getMovie = async () => {
-            const { data } = await useGet({
-                path: 'Movie/GetAll',
-            });
+    const getMovie = async () => {
+        const { data } = useGet({
+            path: 'Movie/GetAll',
+        });
 
-            dispatch(getMoviesRequestAction(data.result));
-        };
-
-        getMovie();
-    }, []);
+        dispatch(getMoviesRequestAction(data.result));
+        console.log(dispatch(getMoviesRequestAction(data.result)));
+    };
 
     return (
         <MovieContext.Provider value={state}>
-            <MovieActionContext.Provider value={{}}>
+            <MovieActionContext.Provider value={{ getMovie }}>
                 {children}
             </MovieActionContext.Provider>
         </MovieContext.Provider>

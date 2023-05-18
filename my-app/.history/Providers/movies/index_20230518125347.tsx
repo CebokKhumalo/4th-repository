@@ -16,24 +16,21 @@ import {
 } from './context';
 import { getMoviesRequestAction } from './action';
 
-const MovieProvider: FC<PropsWithChildren<{}>> = ({ children }) => {
+const MovieProvider = ({ children }) => {
     const [state, dispatch] = useReducer(MovieReducer, INITIAL_STATE);
 
-    useEffect(() => {
-        const getMovie = async () => {
-            const { data } = await useGet({
-                path: 'Movie/GetAll',
-            });
+    const { data: movieData, refetch: getMovieshttps } = useGet({
+        path: 'Movie/GetAll',
+    });
 
-            dispatch(getMoviesRequestAction(data.result));
-        };
-
-        getMovie();
-    }, []);
+    useEffect(
+        () => movieData && dispatch(getMoviesRequestAction(movieData.result)),
+        [movieData, dispatch]
+    );
 
     return (
         <MovieContext.Provider value={state}>
-            <MovieActionContext.Provider value={{}}>
+            <MovieActionContext.Provider value={{ GetMovies }}>
                 {children}
             </MovieActionContext.Provider>
         </MovieContext.Provider>

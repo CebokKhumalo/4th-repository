@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { useMovie } from '../Providers/movies';
+import { useGet } from 'restful-react';
 
-interface Movie {
+interface Movies {
     title: string;
     duration: string;
     staring: string;
@@ -12,16 +12,19 @@ interface Movie {
     videolink: string;
 }
 
-const Dashboard = () => {
-    const { getMovies, getMovie } = useMovie();
-
-    useEffect(() => {
-        getMovie;
-    }, []);
-
-    if (!getMovies) {
+const App = () => {
+    const { data } = useGet({
+        path: 'Movie/GetAll',
+    });
+    if (!data) {
         return <div>Loading...</div>;
     }
+
+    const movies = data.result;
+    console.log(movies);
+
+    console.log('movies: ', movies);
+    console.log('@movies', movies);
 
     return (
         <div
@@ -31,7 +34,7 @@ const Dashboard = () => {
                 gridGap: '20px',
             }}
         >
-            {getMovies.map((movie: Movie) => (
+            {movies.map((movie: Movies) => (
                 <div
                     key={movie.id}
                     style={{
@@ -57,4 +60,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default App;

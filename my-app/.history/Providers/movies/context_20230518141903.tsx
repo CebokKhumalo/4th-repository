@@ -17,7 +17,7 @@ export interface IMovieStateContext {
 }
 
 export interface IMovieActionContext {
-    getMovie?: () => void;
+    getMovies?: (/*payload: IMovies*/) => void;
 }
 
 export const MovieContext = createContext<IMovieStateContext>(INITIAL_STATE);

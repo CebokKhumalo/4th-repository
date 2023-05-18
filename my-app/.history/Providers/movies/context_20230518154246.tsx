@@ -13,11 +13,11 @@ export interface IMovies {
 export const INITIAL_STATE: IMovieStateContext = {};
 
 export interface IMovieStateContext {
-    readonly getMovies?: IMovies[];
+    readonly getMovies: IMovies[];
 }
 
 export interface IMovieActionContext {
-    getMovie?: () => void;
+    getMovie?: (/*payload: IMovies*/) => void;
 }
 
 export const MovieContext = createContext<IMovieStateContext>(INITIAL_STATE);
