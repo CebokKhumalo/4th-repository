@@ -9,4 +9,4 @@ export enum MovieActionEnum {
 export const getMoviesRequestAction = createAction<
     IMovieStateContext,
     IMovies[]
->(MovieActionEnum.getMoviesRequest, (Movies) => ({ Movies }));
+>(MovieActionEnum.getMoviesRequest, (getMovies) => ({ getMovies }));

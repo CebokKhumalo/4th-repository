@@ -10,10 +10,10 @@ export interface IMovies {
     videolink: string;
 }
 
-export const INITIAL_STATE: IMovieStateContext = {Movies: []};
+export const INITIAL_STATE: IMovieStateContext = {};
 
 export interface IMovieStateContext {
-    readonly Movies?: IMovies[];
+    readonly getMovies?: IMovies[];
 }
 
 export interface IMovieActionContext {
