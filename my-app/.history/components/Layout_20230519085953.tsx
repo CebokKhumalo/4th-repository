@@ -35,24 +35,16 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                paddingBottom: '20px',
             }}
         >
-            <div
-            // style={{
-            //     backgroundImage: "url('./Grim_Movies.png')",
-            //     width: '256px',
-            //     height: '256px',
-            //     transform: 'scale(0.3)',
-            // }}
-            >
-                {
+            <div style={{ backgroundImage: "url('./Grim_Movies.png')", width: "256"}}>
+                {/* {
                     <img
                         src="./Grim_Movies.png"
                         alt="Logo"
                         style={{ width: '50px', height: '50px' }}
                     />
-                }
+                } */}
             </div>
             <nav>
                 <Link href="/dashboard">Home</Link> <Link href="#">Genres</Link>{' '}

@@ -16,7 +16,7 @@ const Dashboard = () => {
                 justifyContent: 'space-between', // Adjust alignment as needed
                 gap: '20px',
                 width: '70%', // Adjust the width as needed
-                height: '50%', // Adjust the height as needed
+                height: '65%', // Adjust the height as needed
                 position: 'absolute', // Position it absolutely
                 bottom: 0, // Align to the bottom
                 left: 0, // Align to the left

@@ -15,8 +15,8 @@ const Dashboard = () => {
                 flexWrap: 'wrap',
                 justifyContent: 'space-between', // Adjust alignment as needed
                 gap: '20px',
-                width: '70%', // Adjust the width as needed
-                height: '50%', // Adjust the height as needed
+                width: '90%', // Adjust the width as needed
+                height: '75%', // Adjust the height as needed
                 position: 'absolute', // Position it absolutely
                 bottom: 0, // Align to the bottom
                 left: 0, // Align to the left
@@ -29,7 +29,7 @@ const Dashboard = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         width: '25%',
-                        minHeight: '50px', // Set minimum height for the container
+                        minHeight: '200px', // Set minimum height for the container
                     }}
                 >
                     <h3>{movie.title}</h3>

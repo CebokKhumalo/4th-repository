@@ -35,7 +35,6 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                paddingBottom: '20px',
             }}
         >
             <div

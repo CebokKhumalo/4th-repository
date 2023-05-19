@@ -9,9 +9,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     return (
         <RestfulProvider base="https://localhost:44311/api/services/app/">
             <MovieProvider>
-                <Layout>
-                    <Component {...pageProps} />
-                </Layout>
+                <Layout></Layout>
+                <Component {...pageProps} />
             </MovieProvider>
         </RestfulProvider>
     );

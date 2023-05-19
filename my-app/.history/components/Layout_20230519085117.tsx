@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
-import LayoutStyles from './Layout.module.css';
 
 type Props = {
     children?: ReactNode;
@@ -35,27 +34,17 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                paddingBottom: '20px',
             }}
         >
-            <div
-            // style={{
-            //     backgroundImage: "url('./Grim_Movies.png')",
-            //     width: '256px',
-            //     height: '256px',
-            //     transform: 'scale(0.3)',
-            // }}
-            >
-                {
-                    <img
-                        src="./Grim_Movies.png"
-                        alt="Logo"
-                        style={{ width: '50px', height: '50px' }}
-                    />
-                }
+            <div>
+                <img
+                    src="/Grim Moviies.png"
+                    alt="Logo"
+                    style={{ width: '50px', height: '50px' }}
+                />
             </div>
             <nav>
-                <Link href="/dashboard">Home</Link> <Link href="#">Genres</Link>{' '}
+                <Link href="/dashbord">Home</Link> <Link href="#">Genres</Link>{' '}
                 <Link href="#">Movies</Link> <Link href="#">Upcoming</Link>
             </nav>
             {children}
