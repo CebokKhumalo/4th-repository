@@ -13,7 +13,7 @@ const Dashboard = () => {
             style={{
                 display: 'grid',
                 gridTemplateColumns:
-                    'repeat(auto-fill, minmax(500px, 2fr))' /* Adjusted to fill the width */,
+                    'repeat(auto-fill, minmax(20%, 200px))' /* Adjust the values to make the cards smaller */,
                 gridGap: '20px',
                 width: '80%' /* Adjust the width as needed */,
                 height: '70%' /* Adjust the height as needed */,
@@ -23,13 +23,13 @@ const Dashboard = () => {
                 left: 0 /* Align to the left */,
             }}
         >
-            <div style={{ overflow: 'scroll', width: '100%' }}>
+            <div style={{ overflow: 'auto', height: '100%' }}>
                 {Movies.map((movie) => (
                     <div
                         key={movie.id}
                         style={{
                             display: 'grid',
-                            gridTemplateRows: 'max-content 300px 10fr',
+                            gridTemplateRows: 'max-content 300px 2fr',
                         }}
                     >
                         <h3>{movie.title}</h3>

@@ -13,7 +13,7 @@ const Dashboard = () => {
             style={{
                 display: 'grid',
                 gridTemplateColumns:
-                    'repeat(auto-fill, minmax(500px, 2fr))' /* Adjusted to fill the width */,
+                    'repeat(auto-fill, minmax(200px, 1fr))' /* Adjusted to fill the width */,
                 gridGap: '20px',
                 width: '80%' /* Adjust the width as needed */,
                 height: '70%' /* Adjust the height as needed */,
@@ -29,7 +29,7 @@ const Dashboard = () => {
                         key={movie.id}
                         style={{
                             display: 'grid',
-                            gridTemplateRows: 'max-content 300px 10fr',
+                            gridTemplateRows: 'max-content 00px 2fr',
                         }}
                     >
                         <h3>{movie.title}</h3>
