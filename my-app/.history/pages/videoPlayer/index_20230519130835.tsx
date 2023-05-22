@@ -1,0 +1,26 @@
+import React, { useState, useEffect } from 'react';
+import { useGet } from 'restful-react';
+import { useMovie } from '../../Providers/movies';
+import { useRouter } from 'next/router';
+
+const VideoPlayer: React.FC = () => {
+    const { getMovie } = useMovie();
+    const router = useRouter();// Get the movie ID from the query parameters
+
+   
+
+    return (
+        <div>
+            {/* <h2>{movie.title}</h2>
+            <p>Duration: {movie.duration}</p>
+            <p>Starring: {movie.staring}</p>
+            <p>Category: {movie.category}</p>
+            <video controls>
+                <source src={movie.videoLink} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video> */}
+        </div>
+    );
+};
+
+export default VideoPlayer;
