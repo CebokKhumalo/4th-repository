@@ -5,5 +5,5 @@
 
 body {
     background-image: url('../738982.jpg');
-    background-size: cover; /* Adjust the background sizing as needed */
+    width: 100%;
 }

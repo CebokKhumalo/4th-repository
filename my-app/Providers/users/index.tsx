@@ -25,6 +25,7 @@ const UserProvider: FC = ({ children }) => {
     const { mutate: loginUser } = usePost({
         path: 'api/TokenAuth/Authenticate',
         onSuccess: (data) => {
+            console.log(data);
             notification.success({
                 message: 'Success',
                 description: 'Login successful',
