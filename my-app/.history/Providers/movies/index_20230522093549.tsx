@@ -20,7 +20,7 @@ const MovieProvider = ({ children }) => {
     const [state, dispatch] = useReducer(MovieReducer, INITIAL_STATE);
 
     const { data: moviesData, refetch: getMoviesHttp } = useGet({
-        path: 'services/app/Movie/GetAll',
+        path: 'Movie/GetAll',
     });
     useEffect(() => {
         moviesData && dispatch(getMoviesRequestAction(moviesData.result));
@@ -32,7 +32,7 @@ const MovieProvider = ({ children }) => {
         error: movieByIDError,
         loading: isFetchingMovie,
         data: movie,
-    } = useGet({ path: 'services/app/Movie/Get' });
+    } = useGet({ path: 'Movie/Get' });
 
     useEffect(() => {
         if (!isFetchingMovie && movie?.id) {

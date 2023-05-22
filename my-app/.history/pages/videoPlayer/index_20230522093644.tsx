@@ -14,7 +14,7 @@ const VideoPlayer: React.FC = () => {
         loading,
         data: movie,
     } = useGet({
-        path: `services/app/Movie/Get?id=${movieId}`,
+        path: `Movie/Get?id=${movieId}`,
     });
 
     useEffect(() => {

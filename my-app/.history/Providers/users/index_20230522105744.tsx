@@ -16,7 +16,7 @@ import {
     getUserDetailsRequestAction,
 } from './action';
 import { message, notification } from 'antd';
-import { useMutate, useGet } from 'restful-react';
+import { useMutate } from 'restful-react';
 import { Action } from 'redux-actions';
 
 const UserProvider: FC = ({ children }) => {
@@ -41,7 +41,7 @@ const UserProvider: FC = ({ children }) => {
         },
     });
 
-    /*const { mutate: createUser } = usePost({
+    const { mutate: createUser } = usePost({
         path: 'api/services/app/Person/Create',
         onSuccess: () => {
             dispatch(createUserRequestAction(userRegInfo));
@@ -67,15 +67,15 @@ const UserProvider: FC = ({ children }) => {
     const logOutUser = () => {
         dispatch(logOutUserRequestAction());
         localStorage.removeItem('token');
-    };*/
+    };
 
     return (
         <UserContext.Provider value={state}>
             <UserActionContext.Provider
                 value={{
                     loginUser,
-                    /* createUser,
-                    logOutUser,*/
+                    createUser,
+                    logOutUser,
                 }}
             >
                 {children}
@@ -86,12 +86,16 @@ const UserProvider: FC = ({ children }) => {
 
 function useLoginState() {
     const context = useContext(UserContext);
-
+    if (!context) {
+        throw new Error('useAuthState must be used within a AuthProvider');
+    }
     return context;
 }
 function useLoginActions() {
     const context = useContext(UserActionContext);
-
+    if (context === undefined) {
+        throw new Error('useAuthState must be used within a AuthProvider');
+    }
     return context;
 }
 function useUser() {

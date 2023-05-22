@@ -32,7 +32,7 @@ const MovieProvider = ({ children }) => {
         error: movieByIDError,
         loading: isFetchingMovie,
         data: movie,
-    } = useGet({ path: 'services/app/Movie/Get' });
+    } = useGet({ path: 'Movie/Get' });
 
     useEffect(() => {
         if (!isFetchingMovie && movie?.id) {

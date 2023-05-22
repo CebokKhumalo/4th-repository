@@ -20,30 +20,25 @@ const MovieProvider = ({ children }) => {
     const [state, dispatch] = useReducer(MovieReducer, INITIAL_STATE);
 
     const { data: moviesData, refetch: getMoviesHttp } = useGet({
-        path: 'services/app/Movie/GetAll',
+        path: 'Movie/GetAll',
     });
     useEffect(() => {
         moviesData && dispatch(getMoviesRequestAction(moviesData.result));
     }, [moviesData, dispatch]);
     const getMovie = () => getMoviesHttp();
 
-    const {
-        refetch: getMovieById,
-        error: movieByIDError,
-        loading: isFetchingMovie,
-        data: movie,
-    } = useGet({ path: 'services/app/Movie/Get' });
+    const {refetch:getMovieById,error:movieByIDError,loading:isFetchingMovie,data:movie}=useGet({path:'Movie/Get'})
 
-    useEffect(() => {
-        if (!isFetchingMovie && movie?.id) {
-            dispatch(getMovieIdRequestAction(movie?.result));
-        } else if (movieByIDError) {
-            // Handle error response
-        }
-    }, [movie, isFetchingMovie, movieByIDError]);
-
-    const fetchedMovie = (movieId: string) => {
-        getMovieById({ queryParams: { id: movieId } });
+    useEffect(()=>{
+      if(!isFetchingMovie && movie?.id){
+          dispatch(getMovieIdRequestAction(movie?.result));        
+        } else if(movieByIDError) {
+          // Handle error response     
+        }    
+    },[movie,isFetchingMovie,movieByIDError])
+  
+    const fetchedMovie =  (movieId: string) => {
+      getMovieById({queryParams:{id:movieId}})    
     };
 
     return (
@@ -51,6 +46,7 @@ const MovieProvider = ({ children }) => {
             <MovieActionContext.Provider
                 value={{
                     getMovie,
+                    
                 }}
             >
                 {children}
